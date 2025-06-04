@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	
+	int  años = 0, edad = 0;
+	cout << "Cual es tu edad? :"; cin >> edad;
+	años = 2025 - edad;
+	cout << "Tienes " << edad  << " años y naciste en el  " << años << endl;
+
+}
+
+este es el ejercicio 2 y me sale error
