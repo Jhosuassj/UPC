@@ -2,7 +2,7 @@
 #include <vector>       // Para usar vectores
 using namespace std;
 
-int main() {
+int main() {      // LA VARIABLE VECTOR SE ESCRIBE ASI : VECTOR<TIPO DE DATO> NOMBRE ;
     vector<float> pesos;  // 1️⃣ Creamos un vector vacío que guardará pesos
     int cantidad;         // 2️⃣ Aquí vamos a guardar cuántas personas hay
     float peso;           // 3️⃣ Esta variable guarda cada peso temporalmente
