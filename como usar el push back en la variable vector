@@ -1,0 +1,30 @@
+#include <iostream>     // Para usar cout y cin
+#include <vector>       // Para usar vectores
+using namespace std;
+
+int main() {
+    vector<float> pesos;  // 1️⃣ Creamos un vector vacío que guardará pesos
+    int cantidad;         // 2️⃣ Aquí vamos a guardar cuántas personas hay
+    float peso;           // 3️⃣ Esta variable guarda cada peso temporalmente
+
+    // 4️⃣ Pedimos al usuario cuántas personas hay
+    cout << "¿Cuántas personas hay? ";
+    cin >> cantidad;
+
+    // 5️⃣ Repetimos la entrada 'cantidad' de veces
+    for (int i = 0; i < cantidad; i++) {
+        cout << "Ingresa el peso de la persona " << i + 1 << ": ";
+        cin >> peso;
+
+        // 6️⃣ Guardamos el peso en el vector
+        pesos.push_back(peso);  // 👈 Aquí se ejecuta push_back cada vez
+    }
+
+    // 7️⃣ Mostramos los pesos guardados
+    cout << "\nLista de pesos ingresados:\n";
+    for (int i = 0; i < pesos.size(); i++) {
+        cout << "Persona " << i + 1 << ": " << pesos[i] << " kg" << endl;
+    }
+
+    return 0;
+}
