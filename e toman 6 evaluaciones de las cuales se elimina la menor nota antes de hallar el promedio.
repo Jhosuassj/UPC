@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int C[6];
+    float promedio = 0;
+    int menor, posicion = 0;
+
+    // Ingreso de notas
+    for (int i = 0; i < 6; i++) {
+        cout << "Ingrese la calificacion " << i + 1 << ": ";
+        cin >> C[i];
+    }
+
+    // Encontrar la menor nota y su posición (solo una vez)
+    menor = C[0];
+    for (int i = 1; i < 6; i++) { // el i
+        if (C[i] < menor) {
+            menor = C[i];
+            posicion = i;
+        }
+    }
+
+    // Sumar todas menos la menor (una sola vez)
+    for (int i = 0; i < 6; i++) {
+        if (i != posicion) {
+            promedio += C[i];
+        }
+    }
+
+    // Mostrar resultados
+    cout << "La nota eliminada es: " << menor << endl;
+    cout << "El promedio es: " << promedio / 5 << endl;
+
+    return 0;
+}
