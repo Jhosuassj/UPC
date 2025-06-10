@@ -1,0 +1,61 @@
+#include <iostream>     // Permite usar cout y cin
+#include <vector>       // Permite usar vectores
+using namespace std;
+
+int main() {
+    int n;  // Variable para guardar la cantidad de clientes
+
+    cout << "Ingrese la cantidad de clientes: ";
+    cin >> n; // El usuario ingresa cuántas personas se registrarán
+
+    vector<float> pesos;  // Vector que guardará los pesos de los clientes
+    float peso;           // Variable temporal para ingresar cada peso
+
+    // Leer los pesos de cada cliente
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese el peso del cliente " << i + 1 << ": ";
+        cin >> peso;
+        pesos.push_back(peso); // Agrega el peso al vector
+    }
+
+    // Variables para cálculos
+    float suma = 0;               // Para sumar todos los pesos
+    float max_peso = pesos[0];    // Suponemos que el primer peso es el mayor
+    int delgados = 0;             // Contador de personas con peso < 53
+    int medianos = 0;             // Contador de personas con 53 ≤ peso ≤ 60
+    int gruesos = 0;              // Contador de personas con peso > 60
+
+    // Recorrer el vector para calcular los resultados
+    for (int i = 0; i < pesos.size(); i++) {
+        suma += pesos[i];  // Acumulamos el peso actual
+
+        // Buscar el peso máximo
+        if (pesos[i] > max_peso) {
+            max_peso = pesos[i];
+        }
+
+        // Clasificar según contextura
+        if (pesos[i] < 53) {
+            delgados++;
+        }
+        else if (pesos[i] <= 60) {
+            medianos++;
+        }
+        else {
+            gruesos++;
+        }
+    }
+
+    // Calcular el peso promedio
+    float promedio = suma / n;
+
+    // Mostrar resultados
+    cout << "\n--- Estadísticas del gimnasio ---\n";
+    cout << "Peso promedio: " << promedio << " kg\n";
+    cout << "Peso más alto: " << max_peso << " kg\n";
+    cout << "Delgados (<53 kg): " << delgados << endl;
+    cout << "Medianos (53-60 kg): " << medianos << endl;
+    cout << "Gruesos (>60 kg): " << gruesos << endl;
+
+    return 0; // Fin del programa
+}
