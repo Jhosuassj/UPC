@@ -1,0 +1,75 @@
+#include <iostream>
+#define FILAS 5
+#define COLUMNAS 5
+using namespace std;
+
+void generar(int A[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            A[i][j] = (i * j ) % 9 + 1;  
+        }
+    }
+}
+
+void imprimir(int A[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int mayor_promedio(int A[FILAS][COLUMNAS]) {
+    int filaMax = 0;
+    float mayorProm = 0;
+
+    for (int i = 0; i < FILAS; i++) {
+        int suma = 0;
+        for (int j = 0; j < COLUMNAS; j++) {
+            suma += A[i][j];
+        }
+        float promedio = (float)suma / COLUMNAS;
+        if (promedio > mayorProm) {
+            mayorProm = promedio;
+            filaMax = i+1;
+        }
+    }
+
+    cout << "\nMayor promedio: " << mayorProm << " en fila " << filaMax << endl;
+    return filaMax;
+}
+
+int hallarModa(int A[FILAS][COLUMNAS]) {
+    int frecuencia[10] = { 0 }; // índices de 1 a 9
+
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            int valor = A[i][j];
+            frecuencia[valor]++;
+        }
+    }
+
+    int moda = 1;
+    for (int i = 2; i <= 9; i++) {
+        if (frecuencia[i] > frecuencia[moda]) {
+            moda = i;
+        }
+    }
+
+    cout << "Moda: " << moda << " (repetido " << frecuencia[moda] << " veces)" << endl;
+    return moda;
+}
+
+int main() {
+    int matriz[FILAS][COLUMNAS];
+
+    generar(matriz);
+    cout << "Matriz:\n";
+    imprimir(matriz);
+
+    mayor_promedio(matriz);
+    hallarModa(matriz);
+
+    return 0;
+}
