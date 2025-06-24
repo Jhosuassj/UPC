@@ -1,0 +1,17 @@
+
+#include "string.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+    int* numero = new int;
+    // crear un numero con memoria dinamica 
+    *numero = 24;
+    // asignar un valor a ese numero 
+    cout << "El valor de numero es : " << *numero;
+    //acceder al numero con *
+    cout << "\nLa direccion de memoria es: " << numero;
+    // sin * mostrar la direccion de memoria 
+    delete numero; //eliminarlo de la ram 
+
+}
