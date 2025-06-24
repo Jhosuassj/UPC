@@ -1,0 +1,18 @@
+#include "string.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+    float suma = 0;
+    int* edades = new int[5];
+    for (int i = 0; i < 5; i++) {
+        cout << "Ingrese la edad " << i + 1 << ": ";
+        cin >> edades[i];
+
+        suma += edades[i]; 
+
+    }
+    cout << "El promedio es :" << suma / 5;
+    delete[] edades;
+    return 0; 
+}
