@@ -1,0 +1,13 @@
+#include "string.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+    string* puntero_universidad;// crear un puntero 
+    string universidad = "Upc";// crear una variable 
+    puntero_universidad = &universidad;
+    // puntero que apunta la universidad 
+    cout << "El valor del punteroes: " << *puntero_universidad;
+    cout << "\nLa direccion es:  " << puntero_universidad;
+
+}
