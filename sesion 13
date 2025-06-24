@@ -1,0 +1,14 @@
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int* p;// crear 
+    int numero = 8;
+    p = &numero;// hacer que apunte un valor 
+    cout << "El valor del numero es : " << numero << endl;
+    cout << "El valor al que apunta  p es : " << *p << endl;
+    cout << "La direccion a la que apunta p es : " << p << endl;
+
+}
