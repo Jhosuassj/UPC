@@ -1,0 +1,75 @@
+#include <iostream>
+#include <cstdlib>  // Para rand()
+#include <ctime>    // Para time()
+using namespace std;
+
+
+void opcion1()
+
+{	
+	cout << "Seleccione una opcion:" << endl;
+	cout << "1. Ingresar dato:"<< endl;
+	cout << "2. Generar  dato:" << endl;
+
+}
+void recomendacion(int AQI, float PM) 
+{
+	cout << "\n--- RESULTADO ---\n";
+	cout << "AQI: " << AQI << endl;
+	cout << "PM2.5: " << PM << endl;
+	if (AQI <= 50) {
+		cout << "Calidad del aire: Buena" << endl;
+		cout << "Recomendacion: No se requieren acciones especiales." << endl;
+
+	}
+	else if (AQI <= 100) {
+		cout << "Calidad del aire: Moderada" << endl;
+		cout << "Recomendacion: Puede ser necesario reducir la actividad al aire libre." << endl;
+	}
+	else if (AQI <= 150) {
+		cout << "Calidad del aire: Insalubre para grupos sensibles" << endl;
+		cout << "Recomendacion: Personas con problemas respiratorios deben limitar la actividad al aire libre." << endl;
+	}
+	else if (AQI <= 200) {
+		cout << "Calidad del aire: Insalubre" << endl;
+		cout << "Recomendacion: Todos deben reducir la actividad al aire libre." << endl;
+	}
+	else if (AQI <= 300) {
+		cout << "Calidad del aire: Muy insalubre" << endl;
+		cout << "Recomendacion: Evitar actividades al aire libre." << endl;
+	}
+	else {
+		cout << "Calidad del aire: Peligrosa" << endl;
+		cout << "Recomendacion: Mantenerse en interiores y usar mascarillas si es necesario." << endl;
+	}
+}
+
+int main() {
+	srand(time(0)); // Semilla para generar números aleatorios
+
+	int opcion;
+	int aqi;
+	float pm25;
+
+	opcion1();
+	cout << "Opcion: ";
+	cin >> opcion;
+
+	if (opcion == 1) {
+		cout << "Ingrese el valor de AQI: ";
+		cin >> aqi;
+		cout << "Ingrese el valor de PM2.5: ";
+		cin >> pm25;
+	}
+	else if (opcion == 2) {
+		aqi = rand() % 301; // AQI aleatorio entre 0 y 300
+		pm25 = (rand() % 351) / 10.0; // PM2.5 aleatorio entre 0.0 y 35.0
+	}
+	else {
+		cout << "Opción inválida.\n";
+		return 0;
+	}
+
+	recomendacion(aqi, pm25);
+	return 0;
+}
