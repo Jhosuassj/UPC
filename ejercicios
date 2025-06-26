@@ -1,0 +1,67 @@
+// Escribir un programa que halla el mayor de 3 números enteros ingresados en los datos de entrada
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a, b, c;
+	cout << "Ingrese el primer numero: "; cin >> a;
+	cout << "Ingrese el segundo numero: "; cin >> b;	
+	cout << "Ingrese el tercer numero: "; cin >> c;
+	
+	if (a > b && a > c) {
+		cout << "El numero mayor es: " << a << endl;
+	}
+	else if (b > c && b > a) {
+		cout << "El numero mayor es: " << b << endl;
+	}
+	else if (c > a && c > b) {
+		cout << "El numero mayor es: " << c << endl;
+	}
+	else {
+		cout << "Hay dos o mas numeros iguales." << endl;
+	
+
+}
+//Escribir un programa que permita calcular el cubo de un número real (float)
+#include <iostream>
+using namespace std;
+
+int main() {
+	float a, b;
+	cout << "Ingrese su numero:";cin >> a;
+	b = pow(a, 3);
+
+	cout << "El cubo de " << a << " es " << b << endl;
+}
+
+
+// Escribir un programa que permita leer el valor correspondiente a una distancia en kilómetros y las visualice expresadas en metros
+#include <iostream>
+using namespace std;
+int main() {
+	float a, b;
+	cout << "Ingrese el numero de kilometros :";cin >> a;
+	b = a*1000;
+
+	cout <<  a << " KM son " << b <<" metros "<< endl;
+	
+
+}
+// 
+#include <iostream>
+using namespace std;
+int main() {
+	int  a, b;
+	cout << "Ingrese el primer numero ";cin >> a;
+	cout << "Ingrese el segundo numero ";cin >> b;
+	if (a > b) {
+		cout << "El mayor numero es : " << a << endl;
+	}
+	else if (a < b) {
+		cout << "El mayor numero es : " << b << endl;
+	}
+	else {
+		cout << "Los numeros son iguales" << endl;
+	}
+
+}
