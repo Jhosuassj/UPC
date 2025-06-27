@@ -1,0 +1,79 @@
+#include <iostream> 
+#include <string>
+using namespace std;
+
+struct Best {
+    int p = 1300, m = 1000;
+};
+struct Monark {
+    int p = 1350, m = 2500;
+};
+struct Oxford {
+    int p = 900, m = 3200;
+};
+
+int main() {
+    string nombre;
+    char marca, tipo;
+    Best b; Monark m; Oxford o;
+
+    cout << "Ingrese su nombre: ";
+    getline(cin >> ws, nombre);
+
+    cout << "Bienvenido " << nombre << endl;
+    cout << "Te diremos las marcas, categorias y precios que manejamos:\n";
+
+    cout << "\n1. Best\n";
+    cout << "   Categoria: Paseo (P) , Montanera (M)\n";
+    cout << "   Precio:    " << b.p << "           " << b.m << "\n";
+
+    cout << "2. Monark\n";
+    cout << "   Categoria: Paseo (P) , Montanera (M)\n";
+    cout << "   Precio:    " << m.p << "           " << m.m << "\n";
+
+    cout << "3. Oxford\n";
+    cout << "   Categoria: Paseo (P) , Montanera (M)\n";
+    cout << "   Precio:    " << o.p << "           " << o.m << "\n";
+
+    cout << "\nIngrese la marca que desea comprar (B: Best, M: Monark, O: Oxford): ";
+    cin >> marca;
+
+    cout << "Que tipo de bicicleta desea? (P: Paseo, M: Montanera): ";
+    cin >> tipo;
+
+    cout << "\n--- RESUMEN DE COMPRA ---\n";
+    cout << "Cliente: " << nombre << endl;
+
+    if (marca == 'B' || marca == 'b') {
+        cout << "Marca: Best" << endl;
+        if (tipo == 'P' || tipo == 'p')
+            cout << "Tipo: Paseo - Precio: " << b.p << endl;
+        else if (tipo == 'M' || tipo == 'm')
+            cout << "Tipo: Montanera - Precio: " << b.m << endl;
+        else
+            cout << "Tipo no reconocido." << endl;
+    }
+    else if (marca == 'M' || marca == 'm') {
+        cout << "Marca: Monark" << endl;
+        if (tipo == 'P' || tipo == 'p')
+            cout << "Tipo: Paseo - Precio: " << m.p << endl;
+        else if (tipo == 'M' || tipo == 'm')
+            cout << "Tipo: Montanera - Precio: " << m.m << endl;
+        else
+            cout << "Tipo no reconocido." << endl;
+    }
+    else if (marca == 'O' || marca == 'o') {
+        cout << "Marca: Oxford" << endl;
+        if (tipo == 'P' || tipo == 'p')
+            cout << "Tipo: Paseo - Precio: " << o.p << endl;
+        else if (tipo == 'M' || tipo == 'm')
+            cout << "Tipo: Montanera - Precio: " << o.m << endl;
+        else
+            cout << "Tipo no reconocido." << endl;
+    }
+    else {
+        cout << "Marca no reconocida." << endl;
+    }
+
+    return 0;
+}
