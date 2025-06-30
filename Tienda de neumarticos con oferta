@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int cantneumaticos, precio_total;
+	cout << "Ingrese la cantidad de neumaticos a comprar:";
+	cin >> cantneumaticos;
+
+	if (cantneumaticos < 3)
+		precio_total = 145*cantneumaticos;
+	else if (3<=cantneumaticos<5)
+		precio_total = 138 * cantneumaticos;
+	else if (cantneumaticos >= 5)
+		precio_total = 135 * cantneumaticos;
+	
+	cout << "Usted comprara " << cantneumaticos << " neumaticos." << endl;
+	cout << "El precio total es de: $" << precio_total << endl;
+	return 0;
+
+}
