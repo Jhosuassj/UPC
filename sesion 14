@@ -69,7 +69,45 @@ int main()
 
 
 }
+#include <iostream>
+using namespace std;
+struct Estudiante {
+	string nombre;
+	int edad;
 
+
+};
+int main()
+{
+
+	int N, sumpedad = 0, edadma = 0;
+	cout << "Ingrese el numero de estudiantes : ";
+	cin >> N;
+
+	Estudiante* estudiantes = new Estudiante[N];
+
+	for (int i = 0; i < N; i++)
+	{
+		cout << "Estudiante " << (i + 1) << " Nombre: ";
+		cin >> estudiantes[i].nombre;
+		cout << "Edad: " << (i + 1) << endl;
+		cin >> estudiantes[i].edad;
+		sumpedad += estudiantes[i].edad;
+
+
+		if (edadma < estudiantes[i].edad) {
+			edadma = estudiantes[i].edad;
+		}
+
+		cout << "La edad promedio es " << sumpedad << endl;
+		cout << "La edad mayor es " << edadma << endl;
+
+
+
+
+
+	}
+}
 
 
 
