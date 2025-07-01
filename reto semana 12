@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+// Estructura para almacenar la información de un estudiante
+struct estudiante {
+    char nombre[50];
+    int edad;
+};
+
+// Estructura para almacenar el voto y el estudiante que lo emitió
+struct voto {
+    char voto;         // 'a' o 'b'
+    estudiante e;      // Datos del estudiante
+};
+
+int main()
+{
+    voto v[5]; // Arreglo para guardar los votos de 5 estudiantes
+
+    // Solicita los datos de cada estudiante y su voto
+    cout << "Ingrese los datos de los estudiantes y su voto (a o b):" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Estudiante " << (i + 1) << " Nombre: ";
+        cin >> v[i].e.nombre;
+        cout << "Edad: ";
+        cin >> v[i].e.edad;
+        cout << "Voto (a o b): ";
+        cin >> v[i].voto;
+    }
+
+    // Variables para acumular las edades y contar los votos de cada opción
+    int sumaA = 0, sumaB = 0, countA = 0, countB = 0;
+
+    // Recorre los votos y acumula las edades según la opción votada
+    for (int i = 0; i < 5; i++) {
+        if (v[i].voto == 'a' || v[i].voto == 'A') {
+            sumaA += v[i].e.edad;
+            countA++;
+        }
+        else if (v[i].voto == 'b' || v[i].voto == 'B') {
+            sumaB += v[i].e.edad;
+            countB++;
+        }
+    }
+
+    // Muestra la edad promedio de los que votaron por 'a', si hubo votos
+    if (countA > 0)
+        cout << "Edad promedio de los que votaron por 'a': " << (float)sumaA / countA << endl;
+    else
+        cout << "Nadie voto por 'a'." << endl;
+
+    // Muestra la edad promedio de los que votaron por 'b', si hubo votos
+    if (countB > 0)
+        cout << "Edad promedio de los que votaron por 'b': " << (float)sumaB / countB << endl;
+    else
+        cout << "Nadie voto por 'b'." << endl;
+
+    return 0;
+}
