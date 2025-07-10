@@ -1,0 +1,56 @@
+#include <iostream>
+#define COLUMNAS 15
+#define FILAS 10
+using namespace std;
+
+void generar(int A[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {   //RECORRO FILAS
+        for (int j = 0; j < COLUMNAS; j++) {    //COLUMNAS
+            A[i][j] = 1 + rand() % 3; // ASIGNAR UN VALOR 
+        }
+    }
+}
+
+void  imprimir(int A[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    srand(time(NULL));
+    int M[FILAS][COLUMNAS];
+    generar(M);
+    imprimir(M);
+    int zanahoria = 0, berenjena = 0, nabos = 0;
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            if (M[i][j] == 1)
+                zanahoria++;
+            else if (M[i][j] == 2)
+                berenjena++;
+            else if (M[i][j] == 3)
+                nabos++;
+        }
+    }
+                if (zanahoria > berenjena && zanahoria > nabos) {
+                    cout << "Hay mas zanahorias: " << zanahoria << endl;
+                }
+                else if (berenjena > zanahoria && berenjena > nabos) {
+                    cout << "Hay mas berenjenas: " << berenjena << endl;
+                }
+                else if (nabos > zanahoria && nabos > berenjena) {
+                    cout << "Hay mas nabos: " << nabos << endl;
+                }
+                else {
+                    cout << "Hay un empate en la cantidad de verduras." << endl;
+
+                }
+            
+       
+
+	return 0;
+}
