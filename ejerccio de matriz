@@ -1,0 +1,108 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip> 
+#include <ctime>
+#define COLUMNAS 3
+#define FILAS 50
+using namespace std;
+
+void generar(int A[FILAS][COLUMNAS]) {
+    for (int i = 0; i < FILAS; i++) {
+        A[i][0] = 1 + rand() % 3;  // Oficina: 1 a 3
+        A[i][1] = 1 + rand() % 30; // Minutos: 1 a 30
+        A[i][2] = 1 + rand() % 3;  // Tipo de llamada: 1 a 3
+    }
+}
+
+void imprimir(int A[FILAS][COLUMNAS]) {
+    cout << setw(10) << "Oficina"
+        << setw(10) << "Minutos"
+        << setw(18) << "Tipo de llamada" << endl;
+    for (int i = 0; i < FILAS; i++) {
+        for (int j = 0; j < COLUMNAS; j++) {
+            cout << setw(10) << A[i][j];
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    srand(time(NULL));
+    int M[FILAS][COLUMNAS];
+    generar(M);
+    imprimir(M);
+
+    // Acumulador de minutos por oficina
+    int minOf1 = 0, minOf2 = 0, minOf3 = 0;
+
+    // Monto por tipo de llamada
+    float montolocal = 0, montocelular = 0, montointernacional = 0;
+
+    // Datos para oficina 3 (Ventas)
+    int sumaLocal = 0, sumaCelular = 0, sumaInternacional = 0;
+    int contLocal = 0, contCelular = 0, contInternacional = 0;
+
+    for (int i = 0; i < FILAS; i++) {
+        int oficina = M[i][0];
+        int minutos = M[i][1];
+        int tipo = M[i][2];
+
+        // Minutos por oficina
+        if (oficina == 1) minOf1 += minutos;
+        else if (oficina == 2) minOf2 += minutos;
+        else if (oficina == 3) minOf3 += minutos;
+
+        // Monto total por tipo
+        if (tipo == 1) montolocal += minutos * 0.30;
+        else if (tipo == 2) montocelular += minutos * 0.80;
+        else if (tipo == 3) montointernacional += minutos * 1.50;
+
+        // Si es oficina 3 (Ventas), acumular para promedio
+        if (oficina == 3) {
+            if (tipo == 1) {
+                sumaLocal += minutos;
+                contLocal++;
+            }
+            else if (tipo == 2) {
+                sumaCelular += minutos;
+                contCelular++;
+            }
+            else if (tipo == 3) {
+                sumaInternacional += minutos;
+                contInternacional++;
+            }
+        }
+    }
+
+    // Oficina con más minutos
+    cout << "\n--- Oficina con mayor cantidad de minutos ---" << endl;
+    if (minOf1 > minOf2 && minOf1 > minOf3) cout << "Logística (Oficina 1): " << minOf1 << " minutos" << endl;
+    else if (minOf2 > minOf1 && minOf2 > minOf3) cout << "Recursos Humanos (Oficina 2): " << minOf2 << " minutos" << endl;
+    else if (minOf3 > minOf1 && minOf3 > minOf2) cout << "Ventas (Oficina 3): " << minOf3 << " minutos" << endl;
+    else cout << "Hay empate entre oficinas." << endl;
+
+    // Monto total por tipo de llamada
+    cout << "\n--- Monto total por tipo de llamada ---" << endl;
+    cout << "Local: S/ " << montolocal << endl;
+    cout << "Celular: S/ " << montocelular << endl;
+    cout << "Internacional: S/ " << montointernacional << endl;
+
+    // Promedios de oficina 3
+    cout << "\n--- Promedio de duracion de llamadas en Oficina 3 (Ventas) ---" << endl;
+    if (contLocal > 0)
+        cout << "Promedio llamadas locales: " << (sumaLocal / contLocal) << " minutos" << endl;
+    else
+        cout << "No hubo llamadas locales." << endl;
+
+    if (contCelular > 0)
+        cout << "Promedio llamadas a celular: " << (sumaCelular / contCelular) << " minutos" << endl;
+    else
+        cout << "No hubo llamadas a celular." << endl;
+
+    if (contInternacional > 0)
+        cout << "Promedio llamadas internacionales: " << (sumaInternacional / contInternacional) << " minutos" << endl;
+    else
+        cout << "No hubo llamadas internacionales." << endl;
+
+    return 0;
+}
