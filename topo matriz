@@ -36,21 +36,26 @@ int main() {
                 nabos++;
         }
     }
-                if (zanahoria > berenjena && zanahoria > nabos) {
-                    cout << "Hay mas zanahorias: " << zanahoria << endl;
-                }
-                else if (berenjena > zanahoria && berenjena > nabos) {
-                    cout << "Hay mas berenjenas: " << berenjena << endl;
-                }
-                else if (nabos > zanahoria && nabos > berenjena) {
-                    cout << "Hay mas nabos: " << nabos << endl;
-                }
-                else {
-                    cout << "Hay un empate en la cantidad de verduras." << endl;
+    if (zanahoria > berenjena && zanahoria > nabos) {
+        cout << "El cultivo con mayor frecuencia es 1 " << endl;
+    }
+    else if (berenjena > zanahoria && berenjena > nabos) {
+        cout << "El cultivo con mayor frecuencia es 2" << endl;
+    }
+    else if (nabos > zanahoria && nabos > berenjena) {
+        cout << "El cultivo con mayor frecuencia es 3" << endl;
+    }
 
-                }
-            
-       
-
-	return 0;
+    if (zanahoria < berenjena && zanahoria < nabos) {
+        cout << "El cultivo con menor frecuencia es 1" << endl;
+    }
+    else if (berenjena < zanahoria && berenjena < nabos) {
+        cout << "El cultivo con menor frecuencia es 2" << endl;
+    }
+    else if (nabos < zanahoria && nabos < berenjena) {
+        cout << "El cultivo con menor frecuencia es 3" << endl;
+    }
+    return 0;
 }
+	
+
